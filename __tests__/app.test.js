@@ -20,12 +20,22 @@ describe('zodiac routes', () => {
   });
 
   it('/zodiac/:id should return zodiac detail', async () => {
-    const res = await request(app).get('/zodiac/1');
+    const res = await request(app).get('/zodiac/9');
     const expected = {
-      id: '1',
+      id: '9',
       name: 'sagittarius',
       dates: 'Nov 22 - Dec 21',
       symbol: 'Archer',
+    };
+    expect(res.body).toEqual(expected);
+  });
+});
+describe('horoscope  for sign', () => {
+  test('/horoscope/:sign returns horoscope', async () => {
+    const res = await request(app).get('/horoscope/sagittarius');
+    const expected = {
+      sign: 'sagittarius',
+      horoscope: 'https://ohmanda.com/api/horoscope/sagittarius',
     };
     expect(res.body).toEqual(expected);
   });

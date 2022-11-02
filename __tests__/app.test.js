@@ -21,11 +21,11 @@ describe('zodiac routes', () => {
 
   it('/zodiac/:id should return zodiac detail', async () => {
     const res = await request(app).get('/zodiac/1');
-    const  = {
+    const expected = {
       id: '1',
       name: 'Felix',
       type: 'Tuxedo',
     };
-    expect(res.body).toEqual();
+    expect(res.body).toEqual(expected);
   });
 });
